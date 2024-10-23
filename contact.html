@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://kit.fontawesome.com/d36eeea605.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: 'poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        nav {
+            position: fixed;
+            width: 70px;
+            margin-top: 50px;
+            margin-right: 1470px;
+            transition: all 0.4s linear;
+            box-shadow: 2px 2px 8px 0px rgba(0,0,0,.4);
+        }
+
+        nav li {
+            height: 60px;
+            position: relative;
+        }
+
+        nav li a {
+            color: white;
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: 60px;
+            padding-left: 25%;
+            transition: all 0.4s linear;
+        }
+
+        nav li:nth-child(1) a {
+            background: #4267B2;
+        }
+
+        nav li:nth-child(2) a {
+            background: #E1306C;
+        }
+
+        nav li:nth-child(3) a {
+            background: #2867B2;
+        }
+
+        nav li:nth-child(4) a {
+            background: #ff0000;
+        }
+
+        nav li:nth-child(5) a {
+            background: black;
+        }
+        nav li a i {
+            position: absolute;
+            top: 17px;
+            left: 20px;
+            font-size: 27px;
+        }
+
+        ul li a span {
+            display: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        a:hover {
+            z-index: 1;
+            width: 200px;
+            border-bottom: 1px solid rgba(0,0,0,0.5);
+            box-shadow: 0 0 1px 1px rgba(0,0,0,0.3);
+        }
+
+        ul li:hover a span {
+            padding-left: 30%;
+            display: block;
+        }
+
+        .contact {
+            position: relative;
+            min-height: 100vh;
+            padding: 50px 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-size: cover;
+            background-image: url("https://adadevelopersacademy.org/wp-content/uploads/2019/08/website_bg_2-scaled.jpg");
+        }
+
+        .contact .content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .contact .content h2 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .fa-solid {
+            font-size: 25px;
+            width: 35px;
+            border-radius: 80%;
+            margin-left: 10px;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .container .contactInfo {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            margin-left: 50px;
+        }
+
+        .container .contactInfo .box {
+            position: relative;
+            padding: 25px 0;
+            margin-left: 70px;
+            display: flex;
+        }
+
+        .container .contactInfo .box .icon {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 25px;
+        }
+
+        .container .contactInfo .box .text {
+            display: flex;
+            margin-left: 20px;
+            font-size: 16px;
+            color: #fff;
+            flex-direction: column;
+            font-weight: 300;
+        }
+
+        .container .contactInfo .box .text h3 {
+            font-weight: 500;
+            color: #00bcd4;
+        }
+
+        .contactForm {
+            width: 40%;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 20px;
+        }
+
+        .contactForm h2 {
+            font-size: 30px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .contactForm .inputBox {
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .contactForm .inputBox input {
+            width: 100%;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #333;
+            outline: none;
+        }
+        .contactForm .inputBox textarea {
+            height: 30px;
+            width: 100%;
+            padding: 10px; 
+            resize: vertical;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 2px solid #333;
+            outline: none;
+        }
+        .contactForm .inputBox span {
+            position: absolute;
+            left: 0;
+            padding: 5px 0;
+            font-size: 16px;
+            margin: 10px 0;
+            pointer-events: none;
+            transition: 0.5s;
+            color: #666;
+        }
+
+        .contactForm .inputBox input:focus ~ span,
+        .contactForm .inputBox input:valid ~ span,
+        .contactForm .inputBox textarea:focus ~ span,
+        .contactForm .inputBox textarea:valid ~ span {
+            color: #e91e63;
+            font-size: 12px;
+            transform: translateY(-20px);
+        }
+
+        .contactForm .inputBox input[type="submit"] {
+            width: 170px;
+            background: #00bcd4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 50px;
+            color: #ddd;
+            padding: 10px;
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+        }
+        .star-rating label::after {
+            content: "✰";
+        }
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #f7b731;
+        }
+        .star-rating input:checked + label::after,
+        .star-rating input:checked ~ label::after {
+        content: "★";
+        color: #f9bf3b;
+        text-shadow: 0 0 20px #f9bf3b;
+        }
+        @media (max-width: 991px) {
+            .contact {
+                padding: 50px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .container .contactInfo {
+                margin-bottom: 40px;
+                width: 90%;
+            }
+
+            .contactForm {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                width: 100%;
+            }
+
+            nav li a {
+                padding-left: 20%;
+            }
+
+            nav li a span {
+                padding-left: 15%;
+            }
+
+            .container .contactInfo {
+                margin-left: 0;
+            }
+
+        }
+        @media (max-width: 480px) {
+            .contactForm h2 {
+                font-size: 24px;
+            }
+
+            .contactForm .inputBox input,
+            .contactForm .inputBox textarea {
+                font-size: 14px;
+            }
+
+            .contactForm .inputBox input[type="submit"] {
+                width: 140px;
+            }
+        }
+        @media (max-width: 991px) {
+            .star-rating label {
+                font-size: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .star-rating {
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .star-rating label {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .star-rating label {
+                font-size: 18px;
+            }
+
+            .star-rating {
+                justify-content: center;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="contact">
+        <nav>
+            <ul>
+               <li><a href="https://www.facebook.com/rentme.431541"><i class="fab fa-facebook-f"></i><span>Facebook</span></a></li>
+               <li><a href="https://www.instagram.com/rentme.out/"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+               <li><a href="https://www.linkedin.com/company/rentme/"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a></li>
+               <li><a href="https://www.youtube.com/@onrentme"><i class="fab fa-youtube"></i><span>Youtube</span></a></li>
+               <li><a href="https://x.com/rentme_app"><i class="fa-brands fa-square-x-twitter"></i><span>Twitter</span></a></li>
+            </ul>
+         </nav>
+        <div class="content">
+            <h2><b>Contact Us</b></h2>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-globe" style="color: blue;"></i></div>
+                    <div class="text">
+                        <h3><a href="index.html" style="color: #00bcd4;">Website</a></h3>
+                        <p>RentMe.com</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-phone" style="color: blue;"></i></div>
+                    <div class="text">
+                        <h3><a href="tel:+91 8054969067" style="color: #00bcd4;">Phone</a></h3>
+                        <p>+91 8054969067</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class="fa-solid fa-envelope" style="color: blueviolet;"></i></div>
+                    <div class="text">
+                        <h3><a href="mailto:RentMe@gmail.com" style="color: #00bcd4;">Email</a></h3>
+                        <p>RentMe@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <h2><b>Send Message</b></h2><br>
+                    <div class="inputBox">
+                        <input type="text" name="fullName" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="email" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea name="message" required="required"></textarea>
+                        <span>Type Your Message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <h3>Rate Us:</h3>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star"></label>
+                        </div>
+                    </div>
+                    <p id="ratingError" style="color:red; display:none;">Please select a star rating before submitting!</p>
+                    <div class="inputBox">
+                        <center><input type="submit" value="Send"></center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function validateForm() {
+            const ratings = document.getElementsByName('rating');
+            let ratingSelected = false;
+
+            for (let i = 0; i < ratings.length; i++) {
+                if (ratings[i].checked) {
+                    ratingSelected = true;
+                    break;
+                }
+            }
+            if (!ratingSelected) {
+                document.getElementById('ratingError').style.display = 'block';
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

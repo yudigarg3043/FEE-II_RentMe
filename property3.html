@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/78442a8610.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    a{
+        text-decoration: none;
+        color: #9e7a54;
+    }
+    ul li{
+        list-style: none;
+        color: #9e7a54;
+    }
+    .enquiry{
+        background-color: white;
+        border: 2px solid #9e7a54;
+        color: #9e7a54;
+    }
+    .enquiry:hover, .formbtn:hover, .formbtn.active, .upload-box button{
+        background-color: #9e7a54;
+        color: white;
+    }
+    .upload-box button:hover{
+        background-color: #c2a98f;
+        color: white;
+    }
+    .proceed, .proceed:hover{
+        background-color: #c9bcaf;
+        color: white;
+    }
+    .upload-box {
+        border: 2px dashed #9e7a54;
+        background-color: #f8f9fa;
+        cursor: pointer;
+    }
+    .upload-box i {
+        max-width: 50px;
+    }
+    .upload-box input[type="file"] {
+        display: none;
+    }
+    .image-column {
+        position: relative;
+        width: 50%;
+        height: 200px; /* Fixed height for the images */
+        overflow: hidden; /* Ensures images don't overflow the container */
+    }
+    .image-column img {
+        width: 100%; /* Make the image fill the column width */
+        height: 100%; /* Make the image fill the column height */
+        object-fit: cover; /* Ensures image covers the whole area, cropping if necessary */
+    }
+    .remove-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 10;
+    }
+    .cover-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 128, 0, 0.7); /* Green overlay */
+        color: white;
+        padding: 5px;
+        font-size: 14px;
+        z-index: 5;
+    }
+    .error-message{
+        color: red;
+        font-size: 14px;
+    }
+    input[type="radio"]{
+        display: none;
+    }
+    .form-control{
+        border: none;
+        border-bottom: 2px solid #9e7a54;
+    }
+    .form-control:focus{
+        box-shadow: none;
+        border-color: #9e7a54;
+    }
+    .hidden {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1000; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    }  
+    .hidden-content{
+        background-color: #fff;
+        border: 2px solid #9e7a54;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 4px 8px #c9bcaf;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover,.close:focus {
+        color: black;
+    }
+    @media (max-width: 600px) {
+        .hidden-content {
+            margin: 5% auto; /* Adjust for smaller screens */
+            padding: 15px;
+        }
+        .close {
+            font-size: 24px; /* Smaller close button on mobile */
+        }
+    }
+    footer{
+        background-color: #f5f5f1;
+        background-image: linear-gradient(180deg, #f5f5f1 0%, #e2e2da 100%);
+
+    }
+    #footer-content{
+        border-bottom: 2px solid #9e7a54;
+    }
+    footer a{
+        color: #9e7a54;
+    }
+    </style>
+</head>
+<body>
+<!-- Nav Bar -->
+<header>
+    <nav class="navbar bg-body-tertiary p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand"><img src="logo.png" alt="logo" class="ms-2 img-fluid" style="height: 60px; width: 120px;"></a>
+          <form class="d-flex" role="search">
+            <a href="login.html" class="btn enquiry" type="submit">Sign Up/Log In</a>
+          </form>
+        </div>
+    </nav>
+</header>
+
+<main>
+<section class="container-fluid" style="background-color: #f5f5f1;">
+    <div class="container d-flex justify-content-around align-items-center">
+        <!-- Details Section -->
+        <div class="col-md-4 mt-5 p-5 align-self-start bg-white rounded-4">
+            <h6><a href="#"><i class="bi bi-chevron-left"></i>Go Back</a></h6>
+            <ul class="p-2 m-0">
+                <li class="fw-bold fst-italic p-2"><i class="bi bi-circle-fill me-1"></i><a href="#">Basic Details</a></li>
+                <li class="border-start border-3 ms-3 p-3"></li>
+                <li class="fw-bold fst-italic p-2"><a href="#"><i class="bi bi-circle-fill me-1"></i>Property Details</a></li>
+                <li class="border-start border-3 ms-3 p-3"></li>
+                <li class="p-2"><a href="#"><i class="bi bi-circle-fill me-1"></i>Videos & Photos</a></li>
+            </ul>
+        </div>
+        <!-- Form Section -->
+        <div class="col-md-8 p-5">
+            <h2 class="mb-4">Add Photos of your Property</h2>
+            <div class="row"><p>A picture is worth a thousand words. 87% of buyers look at photos before buying</p></div>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                  <div class="upload-box rounded-4 p-4 text-center" id="uploadBox" onclick="document.getElementById('fileInput').click();">
+                    <!-- <img src="https://img.icons8.com/ios/50/000000/upload--v1.png" alt="Upload Icon"> -->
+                    <i class="bi bi-images fs-1 mb-2"></i>
+                    <p class="fw-bold" style="color: #9e7a54;">+ Add atleast 6 photos</p>
+                    <p>Drag and drop your photos here</p>
+                    <small class="text-muted">Up to 50 photos • Max size 10 MB • Formats: png, jpg, jpeg, gif, webp, heic, heif</small>
+                    <br><br>
+                    <input type="file" id="fileInput" multiple accept="image/png, image/jpeg, image/gif, image/webp, image/heic, image/heif">
+                    <button class="btn mt-3">Upload Photos Now</button>
+                  </div>
+                </div>
+                <!-- Preview Section -->
+                  <div id="preview" class="row mt-3">
+                    <!-- Uploaded image previews will appear here -->
+                  </div>
+              </div>            
+            <div class="row"><button type="submit" class="btn proceed" id="openHidden">Proceed to Last Step</button></div>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Final Step (Popup) -->
+<div class="container-fluid hidden" id="final">
+    <div class="hidden-content m-auto rounded-4 p-5 pt-3" style="background-color: #f5f5f1;">
+        <span class="close">&times;</span>
+        <div class="row mb-4"><h2>Final Step</h2></div>
+        <div class="row mb-4"><label for="location">Location</label></div>
+        <div class="row form-floating mb-4">
+            <input class="form-control" id="location" list="locations" placeholder="Location">
+            <label for="location"><i class="bi bi-geo-alt-fill"></i>Location</label>
+            <datalist id="locations">
+                <option value="Delhi">
+                <option value="Mohali">
+                <option value="Patiala">
+                <option value="Zirakpur">
+            </datalist>
+        </div>
+        <div class="row mb-4"><label for="locality">Locality</label></div>
+        <div class="row form-floating mb-4">
+            <input type="text" id="locality" class="form-control" placeholder="Locality">
+            <label for="locality" class="small">Locality</label>
+        </div>
+        <div class="row mb-4"><label for="rent">Rent Details</label></div>
+        <div class="row form-floating mb-4">
+            <input type="number" id="price" class="form-control" placeholder="Rent Details">
+            <label for="rent" class="small"><i class="fa-solid fa-indian-rupee-sign me-1"></i>Expected Rent</label>
+        </div>
+        <div class="row mb-4"><label for="advance">Month Advance</label></div>
+        <div class="row form-floating mb-4">
+            <input type="number" id="advance" class="form-control" placeholder="Months Advance">
+            <label for="advance" class="small"><i class="fa-regular fa-calendar me-1"></i>No of Months</label>
+        </div>
+        <div class="row mb-4"><label for="flat">Furnishing</label></div>
+            <div class="row mb-4 p-2 btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                <div class="col-md-3 me-2 p-0 border border-2 rounded-4 btn formbtn flex-fill">
+                    <label class="p-2">
+                        <input type="radio" class="check" name="Furnishing" autocomplete="off" value="Furnished"> Furnished 
+                    </label>
+                </div>
+                <div class="col-md-3 me-2 p-0 border border-2 rounded-4 btn formbtn flex-fill">
+                    <label class="p-2">
+                        <input type="radio" class="check" name="Furnishing" autocomplete="off" value="Semi-Furnished"> Semi-Furnished
+                    </label>
+                </div>
+                <div class="col-md-3 me-2 p-0 border border-2 rounded-4 btn formbtn flex-fill">
+                    <label class="p-2">
+                        <input type="radio" class="check" name="Furnishing" autocomplete="off" value="Un-Furnished"> Un-Furnished
+                    </label>
+                </div>
+            </div>
+        <div class="row mb-4"><label for="parking">Parking</label></div>
+            <div class="row mb-4 p-2 btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                <div class="col-md-4 me-2 p-0 border border-2 rounded-4 btn formbtn flex-fill">
+                    <label class="p-2">
+                        <input type="radio" class="check" name="parking" autocomplete="off" value="Car-Parking"> Car-Parking
+                    </label>
+                </div>
+                <div class="col-md-4 me-2 p-0 border border-2 rounded-4 btn formbtn flex-fill">
+                    <label class="p-2">
+                        <input type="radio" class="check" name="parking" autocomplete="off" value="No-Parking"> No-Parking
+                    </label>
+                </div>
+            </div>    
+        <div class="row"><button type="submit" class="btn proceed" onclick="addProperty()">Post your Property</button></div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <div class="container-fluid pt-5 mt-2">
+        <div class="row text-center pb-2" id="footer-content">
+        <div class="col-md-2"><a href="about.html">About</a></div>
+        <div class="col-md-2"><a href="terms.html">Terms &amp; Conditions</a></div>
+        <div class="col-md-2"><a href="review.html">Testimonials</a></div>
+        <div class="col-md-2"><a href="#">Sitemap</a></div>
+        <div class="col-md-2"><a href="contact.html">Contact</a></div>
+        <div class="col-md-2"><a href="FAQS.html">FAQs</a></div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-12 p-3">
+                <a href="https://www.facebook.com/rentme.431541"><i class="bi bi-facebook me-4"></i></a>
+                <a href="https://x.com/rentme_app"><i class="bi bi-twitter me-4"></i></a>
+                <a href="https://www.instagram.com/rentme.out/"><i class="bi bi-instagram me-4"></i></a>
+                <a href="https://www.linkedin.com/company/rentme/"><i class="bi bi-linkedin me-4"></i></a>
+                <a href="mailto:RentMe@gmail.com"><i class="bi bi-envelope me-4"></i></a>
+                <a href="https://www.youtube.com/@onrentme"><i class="bi bi-youtube me-4"></i></a>
+            </div>
+        </div>
+        <div class="row text-center">
+            <p>© 2023-24 RentMe Technologies Solution Pvt. Ltd.</p>
+        </div>
+    </div>
+</footer>  
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('preview');
+    const maxImages = 6; // Set your maximum limit here
+    const minImages = 6;
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'error-message';
+    preview.parentElement.appendChild(errorMessage);
+    
+    // Get the button that opens the hidden div
+    const openHidden = document.getElementById("openHidden");
+
+    fileInput.addEventListener('change', function () {
+      const filesArray = Array.from(fileInput.files);
+      if (filesArray.length + preview.children.length < minImages) {
+        // Display an error message if below the minimum limit
+        errorMessage.innerText = `You need to upload at least ${minImages} images.`;
+        fileInput.value = ''; // Reset the file input
+    } else if (filesArray.length + preview.children.length > maxImages) {
+        // Display an error message and clear the file input
+        errorMessage.innerText = `You can only upload a maximum of ${maxImages} images.`;
+        fileInput.value = ''; // Reset the file input
+    } else {
+        errorMessage.innerText = ''; // Clear any previous error message
+        renderImages(filesArray);
+    }
+  });
+
+  function renderImages(files) {
+    preview.innerHTML = '';
+    files.forEach((file, index) => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imgElement = document.createElement('div');
+            imgElement.classList.add('col-md-6', 'mb-3', 'image-column', 'position-relative');
+            
+            imgElement.innerHTML = `
+                <img src="${e.target.result}" class="img-thumbnail">
+                <button type="button" class="btn btn-sm btn-outline-danger border-4 remove-button" onclick="removeImage(${preview.children.length})"><i class="fa-solid fa-trash"></i></button>
+            `;
+
+            preview.appendChild(imgElement);
+        };
+        reader.readAsDataURL(file);
+    });
+
+    // Disable file input if max images are reached
+    if (preview.children.length >= maxImages) {
+        fileInput.disabled = true;
+        errorMessage.innerText = `Maximum limit of ${maxImages} images reached.`;
+    }
+}
+
+          
+function removeImage(index) {
+    const imageElement = preview.children[index];
+    if (imageElement) {
+        imageElement.remove(); // Remove the specific image element
+    }
+
+    const filesArray = Array.from(fileInput.files);
+    filesArray.splice(index, 1);
+
+    updateFileList(filesArray);
+
+    if (filesArray.length === 0) {
+        fileInput.value = ''; // Reset file input when no images are left
+    }
+
+    // Enable file input again if it's disabled
+    if (filesArray.length < maxImages) {
+        fileInput.disabled = false;
+        errorMessage.innerText = ''; // Clear the max image limit error
+    }
+}
+
+
+  function updateFileList(filesArray) {
+      const dataTransfer = new DataTransfer();
+      
+      // Add each file back to the DataTransfer object except for the removed one
+      filesArray.forEach(file => dataTransfer.items.add(file));
+
+      // Update the input file list
+      fileInput.files = dataTransfer.files;
+  }
+
+//Final Step Hidden Section
+    // Get the hidden div
+    const final = document.getElementById("final");
+
+    // Get the <span> element that closes the hidden div
+    const span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the hidden div 
+    openHidden.onclick = function() {
+        if (preview.children.length === 6) {
+            // Images are uploaded, show the popup
+            final.style.display = "block";
+        } else {
+            // No images uploaded, show an alert
+            alert("Please upload atleast 6 images before proceeding.");
+        }
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        final.style.display = "none";
+    }
+
+//Predefined properties for four different locations...
+const predefinedProperties = {
+    Delhi: [
+    { locality: "Ace Divino", price: "30000", advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://newprojects.99acres.com/projects/ace_group_noida/ace_divino/images/4jbf4dwu.png" },
+    { locality: "Dasnac The Jewel of Noida", price: "37500" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://imagecdn.99acres.com/media1/25795/15/515915069O-1725354703824.jpg" },
+    { locality: "Supreme Enclave", price: "35000" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://images.nobroker.in/images/8a9f8bc391fe5d9e0191fe6af886032e/8a9f8bc391fe5d9e0191fe6af886032e_67653_970492_large.jpg" },
+    { locality: "DLF The skycourt", price: "42500" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://imagecdn.99acres.com/media1/25602/19/512059697O-1723636314908.jpg" },
+    { locality: "E2 Vasant Kunj", price: "45000" , advance: "2", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://imagecdn.99acres.com/media1/25936/3/518723439O-1726547521983.jpg" },
+    { locality: "Saraswati Narmada Ganga Yamuna Apartment", price: "28000" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://imagecdn.99acres.com/media1/26031/16/520636821O-1727263871411.jpg" }
+    ],
+    Mohali: [
+    { locality: "Sector 122", price: "20000" , advance: "3", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbimages/project/Photo_h310_w462/2019/12/11/Project-Photo-25-Hero-Homes-Mohali-Mohali-5086287_563_1000_310_462.jpg" },
+    { locality: "Sector 125", price: "27000" , advance: "1", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://imagecdn.99acres.com/media1/25358/14/507174257M-1722052563792.webp" },
+    { locality: "Sector 126", price: "35000" , advance: "2", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://mediacdn.99acres.com/media1/15392/13/307853978M-1626852294170.jpg" },
+    { locality: "Sahibzada, Ajit Singh Nagar", price: "34000" , advance: "2", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://www.asenseinterior.com/assets/uploads/e0360387eaf8ef1740180f1012d4826a.jpg" },
+    { locality: "MIG SUPER, Sector 70", price: "30000" , advance: "1", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://housing-images.n7net.in/01c16c28/22cb7329ea24ce70e905aae63ac6e7c4/v0/fs/2_bhk_apartment-for-rent-sector_70_sahibzada_ajit_singh_nagar-Mohali-bedroom.jpg" },
+    { locality: "TDI Wellington Heights, Sector 117", price: "38000" , advance: "3", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://housing-images.n7net.in/01c16c28/bfc626c9b77d5bbed8e5530a838bfd22/v0/fs/2_bhk_apartment-for-rent-sector_117_1-Mohali-hall.jpg" }
+    ],
+    Patiala: [
+    { locality: "Urban Estate II", price: "32000" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/May/11/Photo_h300_w450/72764243_6_7_300_450.jpg" },
+    { locality: "Sardar Patel Enclave", price: "26000" , advance: "2", furnish: "Un-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/29/Photo_h0_w320/74064201_2_000506672_0_320.jpg" },
+    { locality: "Dashmesh Nagar", price: "22000" , advance: "4", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Apr/11/Photo_h300_w450/72297291_7_hatsAppImage20240411at12.25.27PM_300_450.jpeg" },
+    { locality: "Urban Estate", price: "25000" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://housing-images.n7net.in/01c16c28/b40d6741e6e52209d5d353f264ba02ef/v0/fs/3_bhk_independent_house-for-rent-anand_nagar_patiala-Patiala-bedroom.jpg" },
+    { locality: "B510 Garden Heights", price: "27000" , advance: "3", furnish: "Un-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/10/Photo_h300_w450/71590439_6_PropertyImage16-808712153246418_300_450.jpg" },
+    { locality: "Majathia Enclave", price: "30000" , advance: "2", furnish: "Fully-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2021/Dec/27/Photo_h470_w1080/58630267_10_1640582449089-51410_470_1080.jpg" }
+    ],
+    Zirakpur: [
+    { locality: "Zirakpur nagar", price: "20000" , advance: "2", furnish: "Un-Furnished", parking: "No-Parking", img: "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2022/12/23/Project-Photo-21-Joynest-MOH-1-Chandigarh-5098627_600_800_0_320.jpg" },
+    { locality: "Zirakpur society", price: "30000" , advance: "3", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2020/03/20/Project-Photo-14-Ananta-Lifestyle-Chandigarh-5124217_742_1280_0_320.jpg" },
+    { locality: "Zirakpur colony", price: "40000" , advance: "4", furnish: "Fully-Furnished", parking: "No-Parking", img: "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2019/11/14/Project-Photo-6-EL-Spazia-Chandigarh-5127047_473_800_0_320.jpg" },
+    { locality: "Zirakpur", price: "50000" , advance: "6", furnish: "Un-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2022/07/19/Project-Photo-10-Green-Lotus-Saksham-Chandigarh-5110603_600_800_0_320.jpg" },
+    { locality: "DLF The skycourt", price: "42500" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Aug/05/Photo_h0_w320/74184239_1_PropertyImage331-5034630858746_0_320.jpg" },
+    { locality: "DLF The skycourt", price: "42500" , advance: "2", furnish: "Semi-Furnished", parking: "Car-Parking", img: "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jul/19/Photo_h300_w450/66819033_2_MG7899_300_450.jpeg" }
+    ]
+};
+
+
+function preloadProperties() {
+    for (let location in predefinedProperties) {
+    // If the location does not exist in localStorage, initialize it
+        if (!localStorage.getItem(location)) {
+            localStorage.setItem(location, JSON.stringify(predefinedProperties[location]));
+            // let existingProperties = JSON.parse(localStorage.getItem(location)) || [];
+        }
+    }
+}
+
+preloadProperties();
+
+function addProperty() {
+    let location = document.getElementById("location").value;
+    let locality = document.getElementById("locality").value;
+    let price = document.getElementById("price").value;
+    let advance = document.getElementById("advance").value;
+    let furnish = document.querySelector('input[name="Furnishing"]:checked').value;
+    // let furnish = document.getElementById("furnish").value;
+    let parking = document.querySelector('input[name="parking"]:checked').value;
+    // let parking = document.getElementById("parking").value;
+    let imgSrc = preview.querySelector('img') ? preview.querySelector('img').src : '';
+
+    if (!location || !locality || !price || !advance || !furnish || !parking || !imgSrc) {
+        alert("Please fill in all fields and upload the images.");
+        return;
+    }
+
+    let newProperty = { locality: locality, price: price, advance: advance, furnish: furnish, parking: parking, img: imgSrc };
+
+    // Get the array for the selected location from localStorage
+    let propertiesArray = JSON.parse(localStorage.getItem(location)) || [];
+
+    // Add the new property to the array
+    propertiesArray.push(newProperty);
+
+    // Save the updated array back to localStorage
+    localStorage.setItem(location, JSON.stringify(propertiesArray));
+
+    alert("Property added to " + location + "!");
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

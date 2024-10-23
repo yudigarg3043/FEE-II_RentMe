@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login/ Sign Up</title>
+    <script src="https://kit.fontawesome.com/d36eeea605.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="curved-shape"></div>
+        <div class="curved-shape2"></div>
+        <div class="form-box Login">
+            <h2 class="animation" style="--D:0; --S:21">Login</h2>
+            <form action="#" id="loginForm">
+                <div class="input-box animation" style="--D:1; --S:22">
+                    <input type="text" required id="username">
+                    <label for="">Username</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box animation" style="--D:2; --S:23">
+                    <input type="password" id="login-password" required>
+                    <label for="">Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                    <i class="fa-solid fa-eye toggle-password" id="login-eye" style="cursor: pointer;"></i>
+                </div>
+                <div class="input-box animation" style="--D:3; --S:24">
+                    <button class="btn" type="submit">Login</button>
+                </div>
+                <div class="regi-link animation" style="--D:4; --S:25">
+                    <p>Don't Have An Account? <a href="#" class="SignUpLink">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-content Login">
+            <h2 class="animation" style="--D:0;--S:20">WELCOME BACK!</h2>
+            <p class="animation" style="--D:1; --S:21"><br>Time to discover a new place to call home.</p>
+        </div>
+        <div class="form-box Register">
+            <h2 class="animation" style="--li:17; --S:0;">Register</h2>
+            <form action="#" id="registerForm">
+                <div class="input-box animation" style="--li:18; --S:1;">
+                    <input type="text" required id="regUsername">
+                    <label for="">Username</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box animation" style="--li:18; --S:1;">
+                    <input type="email" required id="regEmail">
+                    <label for="">Email</label>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="input-box animation" style="--li:19; --S:2;">
+                    <input type="password" id="register-password" required>
+                    <label for="">Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                    <i class="fa-solid fa-eye toggle-password" id="register-eye" style="cursor: pointer;"></i>
+                </div>
+                <div class="input-box animation" style="--li:20; --S:3;">
+                    <button class="btn" type="submit">Register</button>
+                </div>
+                <div class="regi-link animation" style="--li:21; --S:4;">
+                    <p>Have An Account? <a href="#" class="SignInLink">Sign In</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-content Register">
+            <h2 class="animation" style="--li:17; --S:0;">WELCOME!</h2>
+            <p class="animation" style="--li:18; --S:1;"><br>Just Joined? We’ll make finding your perfect rental simple and stress-free!</p>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const LoginLink = document.querySelector('.SignInLink');
+        const RegisterLink = document.querySelector('.SignUpLink');
+        RegisterLink.addEventListener('click', () => {
+            container.classList.add('active');
+        });
+        LoginLink.addEventListener('click', () => {
+            container.classList.remove('active');
+        });
+        const togglePasswordVisibility = (eyeIcon, passwordField) => {
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        };
+        const loginPasswordField = document.getElementById('login-password');
+        const loginEyeIcon = document.getElementById('login-eye');
+        const registerPasswordField = document.getElementById('register-password');
+        const registerEyeIcon = document.getElementById('register-eye');
+        loginEyeIcon.addEventListener('click', () => togglePasswordVisibility(loginEyeIcon, loginPasswordField));
+        registerEyeIcon.addEventListener('click', () => togglePasswordVisibility(registerEyeIcon, registerPasswordField));
+
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+
+        // Handle registration of new users
+        registerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const regUsername = document.getElementById('regUsername').value;
+            const regEmail = document.getElementById('regEmail').value;
+            const regPassword = document.getElementById('register-password').value;
+    
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+    
+            // Check if the username already exists
+            const userExists = users.some(user => user.username === regUsername);
+            if (userExists) {
+                alert('Username already taken.');
+                return;
+            }
+    
+            // Add new user
+            const newUser = {
+                username: regUsername,
+                email: regEmail,
+                password: regPassword,
+                profilePic: 'https://png.pngtree.com/png-clipart/20220213/original/pngtree-avatar-bussinesman-man-profile-icon-vector-illustration-png-image_7268049.png'
+            };
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+    
+            alert('User registered successfully!');
+            container.classList.remove('active');  // Switch to login form
+        });
+    
+        // Handle login
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('login-password').value;
+    
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+    
+            // Validate credentials
+            const user = users.find(user => user.username === username && user.password === password);
+            if (user) {
+                // Store active user data in localStorage
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

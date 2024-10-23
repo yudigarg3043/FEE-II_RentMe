@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="property.css">
+</head>
+<body>
+<!-- Nav Bar -->
+<header>
+    <nav class="navbar bg-body-tertiary p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand"><img src="logo.png" alt="logo" class="ms-2 img-fluid" style="height: 60px; width: 120px;"></a>
+          <form class="d-flex" role="search">
+            <a href="sign.html" class="btn enquiry" type="submit">Sign Up/Log In</a>
+          </form>
+        </div>
+    </nav>
+</header>
+
+<!-- Form Section -->
+<main>
+<div class="container-fluid main">
+    <div class="row p-5">
+        <div class="col-md-7 tagline text-white p-5 ps-0">
+            <h1 class="display-5 fw-bold" style="font-family: cursive;">Aapki Property,<br>
+                Hamari Responsibility!!</h1>
+                <ul class="fs-4 ps-0"><br>
+                    <li><i class="bi bi-check2-circle"></i> Advertise for FREE</li><br>
+                    <li><i class="bi bi-check2-circle"></i> Faster Tenants</li><br>
+                    <li><i class="bi bi-check2-circle"></i> Get unlimited enquires</li>
+                </ul>
+        </div>
+        <div class="col-md-5 p-5 form rounded-4 bg-white">
+        <form>
+        <div class="row form-group fs-5"><p>First Time with <b>RentMe</b>? Let's Simplify the Process!</p></div>
+        <!-- Property Type -->
+        <div class="row form-group pb-3 fs-5">
+        <label for="you-are" class="pb-3 mt-2">Yor are : </label>
+        <div class="btn-group btn-group-toggle d-flex mt-2" data-toggle="buttons">
+            <label class="btn formbtn flex-fill fs-5">
+            <input type="radio" class="check" name="property-type" id="owner" autocomplete="off"> Owner
+            </label>
+            <label class="btn formbtn flex-fill fs-5">
+            <input type="radio" class="check" name="property-type" id="agent" autocomplete="off"> Agent
+            </label>
+        </div>
+        <div id="youError"></div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="row form-group mb-3 mt-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text border-0 fs-5" style="background-color: white;">+91</span>
+            </div>
+            <input type="tel" class="form-control phone" id="phone-number" placeholder="Enter Phone Number">
+          </div>
+          <div id="phoneError"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row"><button type="submit" class="btn proceed fs-5 mt-4" id="proceedButton">Proceed</button></div>
+        </form>              
+        </div>
+    </div>
+</div>
+
+<!-- Steps Section -->
+<div class="container-fluid stepmain pb-3 pt-3">
+    <div class="row steps m-auto rounded-4 p-4 bg-white">
+        <h1 class="text-center p-2" style="color: #9e7a54;">Post Your Properties in<br>3 Simple Steps</h1>
+        <div class="col-md-4 text-center p-4">
+            <div class="row"><i class="bi bi-list-stars" style="font-size: 4rem;"></i></div>
+            <div class="row">
+                <h4 style="color: #9e7a54;">Step 01:</h4>
+                <h4>Add details of your property</h4>
+                <p>Begin by telling us the few basic details about your property like your property location, No. of rooms etc.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center p-4">
+            <div class="row"><i class="bi bi-images" style="font-size: 4rem;"></i></div>
+            <div class="row">
+                <h4 style="color: #9e7a54;">Step 02:</h4>
+                <h4>Upload Photos</h4>
+                <p>Upload photos of your property either via your desktop device or from your mobile phone.</p>
+            </div>
+        </div>
+        <div class="col-md-4 text-center p-4">
+            <div class="row"><i class="bi bi-cash-coin" style="font-size: 4rem;"></i></div>
+            <div class="row">
+                <h4 style="color: #9e7a54;">Step 03:</h4>
+                <h4>Add Pricing & Ownership</h4>
+                <p>Just update your property's ownership details and your expected price and property is ready for posting.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits Section -->
+<div class="container-fluid" style="background-color: #f5f5f1;">
+    <div class="row p-4 text-center">
+        <h1 class="p-4" style="color: #9e7a54;">Benefits of Selling Your Property Online</h1>
+        <div class="col-md-3 p-4">
+            <h5><i class="bi bi-check-circle me-2"></i>Time-Efficient</h5>
+            <p>Selling your property online with portals such as RentMe can help you save time, manage your bookings at your convenience and receive quality leads quickly.</p>
+        </div>
+        <div class="col-md-3 p-4">
+            <h5><i class="bi bi-check-circle me-2"></i>Get Better Exposure To Potential Buyers</h5>
+            <p>A large number of prospective buyers search online, a far easier way than visiting individuals properties. This helps your property get wider exposure to lakhs of buyers present online.</p>
+        </div>
+        <div class="col-md-3 p-4">
+            <h5><i class="bi bi-check-circle me-2"></i>Cost-Effective</h5>
+            <p>By opting to rent or sell online, you can expect a significant reduction in agent fees and overall cost associated with renting or selling a home traditionally.</p>
+        </div>
+        <div class="col-md-3 p-4">
+            <h5><i class="bi bi-check-circle me-2"></i>More Services</h5>
+            <p>Not only RentMe offers a multitude of property services such as rent agreements, home cleaning, renovation, tenant verification, and more for your convenience.</p>
+        </div>
+    </div>
+</div>
+
+<!--How it Works Section-->
+<div class="container-fluid">
+    <div class="row text-center p-4 justify-content-center">
+        <h1 class="p-5" style="color: #9e7a54;">How It Works</h1>
+        <div class="col-md-8 d-flex work p-3">
+            <div class="col-md-6"><img src="https://www.nestaway.com/_next/image?url=%2Fimages%2Feffortless.png&w=828&q=75" alt="work1" class="img-fluid"></div>
+            <div class="col-md-6">
+                <h4>Effortless Property Listing Process</h4>
+                <p>For property owners, listing a property is a quick and straightforward process. Complete our user-friendly form in minutes, and your property will be live upon verification.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center p-4 justify-content-center">
+        <div class="col-md-8 d-flex work p-3">
+            <div class="col-md-6">
+                <h4>Tenant Scheduling Visits</h4>
+                <p>Once a potential tenant expresses interest in visiting your property, our executive assists the tenant in showing your property.</p>
+            </div>
+            <div class="col-md-6"><img src="https://www.nestaway.com/_next/image?url=%2Fimages%2FschedulingVisits.png&w=640&q=75" alt="work2" class="img-fluid" style="transform: scaleX(-1);"></div>
+        </div>
+    </div>
+    <div class="row text-center p-4 justify-content-center">
+        <div class="col-md-8 d-flex work p-3">
+            <div class="col-md-6"><img src="https://www.nestaway.com/_next/image?url=%2Fimages%2Fseamless.png&w=828&q=75" alt="work3" class="img-fluid"></div>
+            <div class="col-md-6">
+                <h4>Seamless Deal Closure</h4>
+                <p>Our dedicated executive and the tenant finalize the deal, ensuring tenant verification. RentMe offers assistance in creating a rental agreement and tenant move-in.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQs Section -->
+<div class="container-fluid">
+    <div class="row faq-section m-auto p-5 mt-5 mb-5 rounded-4">
+        <h3>Frequently Asked Questions...</h3>
+        <details class="mb-2">
+            <summary class="p-2">Can I register a property on behalf of someone else?</summary>
+            <p class="p-1">Since your house is a valuable asset, we need a registered phone number, Email ID, valid ownership proof & ID proof. If you have access to these documents for the property, you can list on someone's behalf.</p>
+        </details>
+        <details class="mb-2">
+            <summary class="p-2">Can I rent out the house by keeping a portion of the house locked?</summary>
+            <p class="p-1">Yes, it is possible for you to list a partially locked house. For instance, if you have a 3 BHK, and you want to keep 1 room locked, you can list it as a 2 BHK house on our platform and clarify the same in the House description.</p>
+        </details>
+        <details class="mb-3">
+            <summary class="p-2">Is posting property for selling/renting on RentMe FREE?</summary>
+            <p class="p-1">Yes, you can post your property listing online for sale or rent on RentMe for FREE. There are no charges involved. All buyer/tenant enquires will be shared with you completely free of cost.</p>
+        </details>
+        <details class="mb-3">
+            <summary class="p-2">Can I rent out an unfurnished house through RentMe?</summary>
+            <p class="p-1">Basic furnishing, including but not limited to, are a must in every house. <br>
+                a.Kitchen slab/sink, <br>
+                b.Bathroom fittings, <br>
+                c.Electrical fittings, including fcontent and lights <br>
+                d.Doors, Windows & Curtain Rods <br>
+                e.Apart from these, we advise you to have wardrobes and geysers as this increases the chances of renting the house. You can contact your RentMe representative in case you need furnishing assistance.</p>
+        </details>
+    </div>
+</div>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="container-fluid pt-5">
+        <div class="row text-center pb-2" id="footer-content">
+        <div class="col-md-2"><a href="about.html">About</a></div>
+        <div class="col-md-2"><a href="terms.html">Terms &amp; Conditions</a></div>
+        <div class="col-md-2"><a href="review.html">Testimonials</a></div>
+        <div class="col-md-2"><a href="#">Sitemap</a></div>
+        <div class="col-md-2"><a href="contact.html">Contact</a></div>
+        <div class="col-md-2"><a href="FAQS.html">FAQs</a></div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-12 p-3">
+                <a href="https://www.facebook.com/rentme.431541"><i class="bi bi-facebook me-4"></i></a>
+                <a href="https://x.com/rentme_app"><i class="bi bi-twitter me-4"></i></a>
+                <a href="https://www.instagram.com/rentme.out/"><i class="bi bi-instagram me-4"></i></a>
+                <a href="https://www.linkedin.com/company/rentme/"><i class="bi bi-linkedin me-4"></i></a>
+                <a href="mailto:RentMe@gmail.com"><i class="bi bi-envelope me-4"></i></a>
+                <a href="https://www.youtube.com/@onrentme"><i class="bi bi-youtube me-4"></i></a>
+            </div>
+        </div>
+        <div class="row text-center">
+            <p>© 2023-24 RentMe Technologies Solution Pvt. Ltd.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById("proceedButton").addEventListener('click', function(event) {
+            event.preventDefault();
+            if(validateForm()) {
+                //event.preventDefault();
+                //document.getElementById("successPopup").style.display = "flex";
+                window.location.href = "property1.html";
+            } else {
+                alert("Please fill out all required fields.");
+            }
+        });
+
+        // document.getElementById("proceedToNextPage").addEventListener('click', function() {
+        // window.location.href = "property1.html";
+        // });
+
+        function validateForm() {
+        let isValid = true;
+
+        document.getElementById('youError').innerHTML = '';
+        document.getElementById('phoneError').innerHTML = '';
+
+        let owner = document.getElementById('owner').checked;
+        let agent = document.getElementById('agent').checked;
+        if(!owner && !agent) {
+            document.getElementById('youError').innerHTML = "Plese select your type.";
+            document.getElementById('youError').style.color = "red";
+            isValid = false;
+        }
+
+        let phone = document.getElementById("phone-number").value;
+        if(phone === '') {
+            document.getElementById('phoneError').innerHTML = "Phone is required";
+            document.getElementById('phoneError').style.color = "red";
+            isValid = false;
+        }
+        else if(phone.length !== 10 || isNaN(phone)){
+            document.getElementById('phoneError').innerHTML = `Enter valid Phone number`;
+            document.getElementById('phoneError').style.color = "red";
+            isValid = false;
+        }
+        return isValid;
+    }
+
+    function checkFieldsFilled() {
+        let owner = document.getElementById("owner").checked;
+        let agent = document.getElementById("agent").checked;
+        let phone = document.getElementById("phone-number").value;
+
+        if ((owner || agent) && phone !== '') {
+            document.getElementById("proceedButton").style.backgroundColor = "#9e7a54";
+            document.getElementById("proceedButton").style.color = "white";
+        } else {
+            document.getElementById("proceedButton").style.backgroundColor = "#c9bcaf";
+            document.getElementById("proceedButton").style.color = "white";
+        }
+    }
+
+    document.getElementById("owner").addEventListener('change', checkFieldsFilled);
+    document.getElementById("agent").addEventListener('change', checkFieldsFilled);
+    document.getElementById("phone-number").addEventListener('input', checkFieldsFilled);
+    });
+</script>
+</body>
+</html>
