@@ -228,6 +228,9 @@ function updateAuthSection() {
   } else {
     authSection.innerHTML = `<a href="sign.html" class="btn enquiry" type="submit">Sign Up/Log In</a>
     `;
+    for (let section in sections) {
+      document.getElementById(sections[section]).style.display = 'none';
+    }
   }
 }
 
